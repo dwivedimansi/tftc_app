@@ -1,9 +1,0 @@
-{
-    "rewrites": [
-      {
-        "source": "/test/(.*)(?<!\.js$)",
-        "destination": "/test/index.html"
-      }
-    ]
-  }
-  
