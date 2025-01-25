@@ -1,5 +1,5 @@
 /**
- * Color intention that you want to used in your theme
+ * Color intention that you want to use in your theme
  * @param {JsonObject} theme Theme customization object
  */
 
@@ -10,11 +10,11 @@ export default function themePalette(theme) {
       black: theme.colors?.darkPaper
     },
     primary: {
-      light: theme.colors?.primaryLight,
-      main: theme.colors?.primaryMain,
-      dark: theme.colors?.primaryDark,
-      200: theme.colors?.primary200,
-      800: theme.colors?.primary800
+      light: "#ffe082", // Light variant of #ffc107
+      main: "#ffc107",  // Main color
+      dark: "#ff8f00",  // Dark variant of #ffc107
+      200: "#ffd54f",   // Optional 200-level shade
+      800: "#ffa000"    // Optional 800-level shade
     },
     secondary: {
       light: theme.colors?.secondaryLight,

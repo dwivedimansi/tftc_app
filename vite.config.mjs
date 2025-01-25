@@ -1,5 +1,3 @@
-// https://github.com/vitejs/vite/discussions/3448
-// import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import jsconfigPaths from 'vite-jsconfig-paths';
@@ -8,12 +6,21 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 
 export default defineConfig({
   plugins: [react(), jsconfigPaths()],
-  // https://github.com/jpuri/react-draft-wysiwyg/issues/1317
-  base: '/test',
+  base: '/test', // Sets the base URL of your app
   define: {
     global: 'window'
   },
+  server: {
+    open: true, // Automatically opens the browser
+    port: 3000, // Sets the dev server port to 3000
+    historyApiFallback: true, // Ensures unmatched routes fall back to index.html
+  },
+  preview: {
+    open: true, // Automatically opens the browser for preview
+    port: 3000, // Sets the preview server port to 3000
+  },
   resolve: {
+    // Aliases can be uncommented and adjusted if necessary
     // alias: [
     //   {
     //     find: /^~(.+)/,
@@ -24,17 +31,5 @@ export default defineConfig({
     //     replacement: path.join(process.cwd(), 'src/$1')
     //   }
     // ]
-  },
-  server: {
-    // this ensures that the browser opens upon server start
-    open: true,
-    // this sets a default port to 3000
-    port: 3000
-  },
-  preview: {
-    // this ensures that the browser opens upon preview start
-    open: true,
-    // this sets a default port to 3000
-    port: 3000
   }
 });

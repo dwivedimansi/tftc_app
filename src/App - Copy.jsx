@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
-import  FA13Portfolio from 'views/components/fa13-portfolio/fa13-portfolio';
 
 // Google OAuth
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -13,16 +12,14 @@ import Dashboard from 'views/dashboard/index';
 import themes from 'themes';
 import NavigationScroll from 'layout/NavigationScroll';
 
-
 // Routes setup with conditional authentication check
 const router = createBrowserRouter([
   {
     path: '/test',
     element: localStorage.getItem('isAuthenticated') ? <Dashboard /> : <Login />,
-  },  
-  { path: '/test/login', element: <Login /> },
-  { path: '/test/dashboard', element: <Dashboard /> },
-  { path: '/test/fa13-portfolio', element: <FA13Portfolio /> },
+  },
+  { path: '/login', element: <Login /> },
+  { path: '/dashboard', element: <Dashboard /> },
 ]);
 
 const App = () => {

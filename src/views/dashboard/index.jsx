@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Button } from '@mui/material';  // Import Material-UI button
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 // material-ui
 import Grid from '@mui/material/Grid';
@@ -20,13 +22,29 @@ import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 
 const Dashboard = () => {
   const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();  // Initialize navigate function to handle redirection
 
   useEffect(() => {
     setLoading(false);
   }, []);
 
+  const handleLogout = () => {
+    // Clear authentication data
+    localStorage.removeItem('isAuthenticated');
+
+    // Redirect to login page
+    navigate('/login');
+  };
+
   return (
     <Grid container spacing={gridSpacing}>
+      {/* Logout Button */}
+      <Grid item xs={12} style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
+        <Button variant="contained" color="secondary" onClick={handleLogout}>
+          Logout
+        </Button>
+      </Grid>
+
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item lg={4} md={6} sm={6} xs={12}>
@@ -54,6 +72,7 @@ const Dashboard = () => {
           </Grid>
         </Grid>
       </Grid>
+
       <Grid item xs={12}>
         <Grid container spacing={gridSpacing}>
           <Grid item xs={12} md={8}>

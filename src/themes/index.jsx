@@ -25,10 +25,10 @@ export const theme = (customization) => {
     darkTextPrimary: color.grey700,
     darkTextSecondary: color.grey500,
     textDark: color.grey900,
-    menuSelected: color.secondaryDark,
+    menuSelected: color.secondaryDark, // This will now refer to the updated yellow
     menuSelectedBack: color.secondaryLight,
     divider: color.grey200,
-    customization
+    customization,
   };
 
   const themeOptions = {
